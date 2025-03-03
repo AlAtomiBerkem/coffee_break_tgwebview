@@ -7,3 +7,5 @@ const MatchProfile = () => {
         </>
     )
 }
+
+export default MatchProfile;

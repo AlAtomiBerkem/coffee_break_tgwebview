@@ -1,28 +1,30 @@
 import React from 'react';
+import NavBar from "./components/NavBar";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import MatchProfile from "./pages/MatchProfile.jsx";
+import RatingForm from "./pages/RatingForm.jsx";
+import RegistrationForm from "./pages/RegistrationForm.jsx";
+import SplashScreen from "./pages/SplashScreen.jsx";
+import WelcomeScreen from "./pages/WelcomeScreen.jsx";
+import Maintenance from "./components/Maintenance.jsx"
+
 
 function App() {
-     const [count, setCount] = React.useState(0);
-     const [value, setValue] = React.useState('текст внутри инпута');
 
-    function addLikes() {
-        setCount(count + 1);
-    }
-
-    function  addDislikes() {
-        setCount(count -1);
-    }
-  return (
-    <div className="App">
-        <h1>количество: {count}</h1>
-        <h2>{value}</h2>
-        <input type="text"
-               value={value}
-               onChange={event => setValue(event.target.value)}
-        />
-        <button onClick={addLikes}>Likes</button>
-        <button onClick={() => addDislikes()}>Dislikes</button>
-    </div>
-  );
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<NavBar />} />
+                    <Route path="/MatchProfile" element={<MatchProfile />} />
+                    <Route path="/RatingForm" element={<RatingForm />}/>
+                    <Route path="/RegistrationForm" element={<RegistrationForm />}/>
+                    <Route path="/SplashScreen" element={<SplashScreen />}/>
+                    <Route path="/WelcomeScreen" element={<WelcomeScreen />}/>
+                    <Route path="*" element={<Maintenance />}/>
+                </Routes>
+            </BrowserRouter>
+        </>
+    )
 }
-
 export default App;

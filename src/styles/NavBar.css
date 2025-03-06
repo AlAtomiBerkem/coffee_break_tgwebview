@@ -1,15 +1,42 @@
+/* Основные стили для навигационной панели */
 .navbar {
-    display: flex;
-    background-color: teal;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 50px;
-    align-items: center;
-    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.title {
-    font-size: 1.2rem;
-    font-weight: bold;
+.navbar__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.navbar__item {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar__item:hover {
+    background-color: #f0f0f0;
+}
+
+.navbar__item p {
     margin: 0;
-    padding: 0;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 480px) {
+    .navbar__item p {
+        font-size: 12px;
+    }
 }
